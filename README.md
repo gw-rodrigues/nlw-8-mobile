@@ -17,20 +17,34 @@
 
 ![Instalation](https://gist.githubusercontent.com/gw-rodrigues/d0ea04e57502976391b0f71b9a06d918/raw/eba1ec06e6bf00f792d9f1f4ca4ce7df1dab9673/Instalation.svg)
 
-Create-vite is a tool to quickly start a project from a basic template for popular frameworks.
-You can use a tool like [degit](https://github.com/Rich-Harris/degit) to clone my projects for your directory.
+Before start, you may need Explo-cli to create or start new projects.
 
 ```sh
-npx degit user/repository new-project-folder-name
-cd new-project-folder-name
+#with npm
+npm install -g expo-cli
 
+#with yarn
+yarn global add expo-cli
+
+#check if its installed
+expo --version
+```
+After the installation of the Expo-cli, you can clone this repository and execute the cmd bellow to install dependencies.
+```sh
+#with yarn
+yarn
+
+#with npm
 npm install
-npm run dev
 ```
-If the project uses <strong>main as the default branch</strong>, suffix the project repo with #main
+
+Starting the app.
 ```sh
-npx degit user/repository#main new-project-folder-name
+#expo
+expo start
 ```
+
+Install Expo Go for android or IOS from the store. Just SCAN de image from terminal or page.
 
 ![More...](https://gist.githubusercontent.com/gw-rodrigues/d0ea04e57502976391b0f71b9a06d918/raw/eba1ec06e6bf00f792d9f1f4ca4ce7df1dab9673/More....svg)
 
