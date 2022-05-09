@@ -15,7 +15,7 @@ export function Options() {
         Deixe seu feedback
       </Text>
 
-      <view style={styles.options}>
+      <View style={styles.options}>
         {
           Object.entries(feedbackTypes)
           .map(([key,value])=>(
@@ -26,7 +26,7 @@ export function Options() {
             />
           ))
         }
-      </view>
+      </View>
         <Copyright/>
     </View>
   );
