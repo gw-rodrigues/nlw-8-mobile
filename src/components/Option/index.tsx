@@ -1,12 +1,24 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from "react";
+import {
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  Image,
+  ImageProps,
+} from "react-native";
 
-import { styles } from './styles';
+import { styles } from "./styles";
 
-export function Option() {
+interface OptionProps extends TouchableOpacityProps {
+  title: String;
+  image: ImageProps;
+}
+
+export function Option({ title, image, ...rest }: OptionProps) {
   return (
-    <View style={styles.container}>
-
-    </View>
+    <TouchableOpacity style={styles.container} {...rest}>
+      <Image source={image} style={styles.image} />
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
   );
 }
