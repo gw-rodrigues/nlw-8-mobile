@@ -1,20 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
-import { styles } from "./styles";
-import { theme } from "../../theme";
+import { captureScreen } from 'react-native-view-shot'
 
 import { FeedbackType } from "../Widget";
 import { ScreenshotButton } from "../ScreenshotButton";
 import { Button } from "../Button";
 import { feedbackTypes } from "../../utils/feedbackTypes";
 
+import { styles } from "./styles";
+import { theme } from "../../theme";
+
 interface FormProps {
   feedbackType: FeedbackType;
 }
 
 export function Form({ feedbackType }: FormProps) {
+
+  const [screenshot, setScreenshot] = useState<string | null>(null)
+
   const feedbackTypeInfo = feedbackTypes[feedbackType];
+
+  function handleScreenshot(){
+    captureScreen({
+      format:'jpg',
+      quality:0.8
+    })
+    .then(uri => setScreenshot(uri))
+    .catch(error => console.log(error))
+  }
+
+  function handleScreenshotRemove(){
+    setScreenshot(null)
+  }
 
   return (
     <View style={styles.container}>
@@ -40,9 +58,9 @@ export function Form({ feedbackType }: FormProps) {
 
       <View style={styles.footer}>
         <ScreenshotButton
-          onTakeShot={() => {}}
-          onRemoveShot={() => {}}
-          screenshot=""
+          onTakeShot={handleScreenshot}
+          onRemoveShot={handleScreenshotRemove}
+          screenshot={screenshot}
         />
         <Button isLoading={false} />
       </View>
