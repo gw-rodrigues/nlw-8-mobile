@@ -9,6 +9,9 @@ import { Options } from "../Options";
 import { styles } from "./styles";
 import { theme } from "../../theme";
 
+import { feedbackTypes } from "../../utils/feedbackTypes";
+
+export type FeedbackType = keyof typeof feedbackTypes;
 
 function Widget() {
   const bottomSheetRef = useRef<BottomSheet>(null);
